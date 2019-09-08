@@ -5,10 +5,10 @@ import re
 #pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files (x86)/Tesseract-OCR/tesseract'
 screenshot = pyautogui.screenshot('test.png')
 extractedText = pytesseract.image_to_data(screenshot)
-#print(extractedText)
-extractedText = extractedText.replace("\t"," ")
-extractedText = extractedText.replace("\n"," ")
-extractedArray = extractedText.split(" ")
+
+filteredText = extractedText.replace("\t"," ")
+filteredText = filteredText.replace("\n"," ")
+extractedArray = filteredText.split(" ")
 print(extractedArray)
 
 if re.search("D.*test", extractedText):
