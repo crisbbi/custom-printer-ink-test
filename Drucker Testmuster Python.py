@@ -6,3 +6,6 @@ import re
 screenshot = pyautogui.screenshot('test.png')
 extractedText = pytesseract.image_to_string(screenshot)
 print(extractedText)
+
+if re.search("D.*test", extractedText):
+    print("Match: " + str(re.search("D.*test", extractedText)))
