@@ -1,6 +1,12 @@
 import pyautogui
 import pytesseract
 import re
+import ctypes
+
+user32 = ctypes.windll.user32
+screenHeightResolution = user32.GetSystemMetrics(1)
+
+pyautogui.moveTo(5, screenHeightResolution - 10)
 
 #pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files (x86)/Tesseract-OCR/tesseract'
 screenshot = pyautogui.screenshot('test.png')
