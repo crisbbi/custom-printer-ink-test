@@ -83,4 +83,5 @@ pathToGSPrint = "C:\\Users\\chris\\Documents\\GSPRINT\\gsprint.exe"
 #currentprinter = win32print.GetDefaultPrinter()
 currentprinter = "Canon MG5200 series Printer WS"
 print('-ghostscript "'+pathToGhostScript+'" -printer "'+currentprinter+'" "C:\\Users\\chris\\Documents\\custom-printer-ink-test\\lorem-test.pdf"')
-win32api.ShellExecute(0, 'open', pathToGSPrint, '-ghostscript "'+pathToGhostScript+'" -printer "'+currentprinter+'" "C:\\Users\\chris\\Documents\\custom-printer-ink-test\\lorem-test.pdf"', '.', 0)
+pdfFileLocation = "C:\\Users\\chris\\Documents\\custom-printer-ink-test\\lorem-test.pdf"
+win32api.ShellExecute(0, 'open', pathToGSPrint, '-ghostscript "' + pathToGhostScript + '" -printer "' + currentprinter + pdfFileLocation, '.', 0)
