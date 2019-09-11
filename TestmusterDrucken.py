@@ -6,6 +6,8 @@ from PIL import Image, ImageWin
 '''
 ---------------------------------------------
 Print image
+pretty much copy-pasted from 
+http://timgolden.me.uk/python/win32_how_do_i/print.html#shellexecute
 ---------------------------------------------
 '''
 # Constants for GetDeviceCaps
