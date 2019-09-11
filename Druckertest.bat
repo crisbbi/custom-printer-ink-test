@@ -1,0 +1,1 @@
+"C:\Users\chris\AppData\Local\Programs\Python\Python37-32\python.exe" "C:\Users\chris\Documents\custom-printer-ink-test\TestmusterDrucken.py"
