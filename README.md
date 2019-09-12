@@ -21,6 +21,8 @@ The edible ink (in a compatible printer) should be used regularly, otherwise it 
     1. (Optional): remove the `#` before `printer = win32print.GetDefaultPrinter()` to select your standard printer
 1. Replace the location of `pathToImageFile` with the absolute path of the image file (imageColors.jpg) provided. Otherwise take the absolute path of any image you prefer (on your computer).
 1. Replace the location of `pathToPDFFile` with the absolute path of the PDF file (lorem-ipsum.pdf) provided. Otherwise take the absolute path of any PDF you prefer (on your computer).
+1. Replace the location of `pathToGhostScript` with the absolute path of the gswin32.exe file, saved in the unpacked Ghostscript folder.
+1. Replace the location of `pathToGSPrint` with the absolute path of the gsprint.exe file, saved in the unpacked gsprint folder.
 
 ### Usage:
 You can now go to the Windows task scheduler and create a new task that executes the batch file however you like.
