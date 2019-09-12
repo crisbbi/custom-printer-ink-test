@@ -3,10 +3,10 @@ import win32api
 import win32print
 from PIL import Image, ImageWin
 
-printer = "Canon MG5200 series Printer WS"
+printer = "Your printer name"
 # file names must be absolute path so the task scheduler doesn't throw errors
-pathToImageFile = "C:\\Users\\chris\\Documents\\custom-printer-ink-test\\imageColors.jpg"
-pathToPDFFile = "C:\\Users\\chris\\Documents\\custom-printer-ink-test\\lorem-test.pdf"
+pathToImageFile = "absolute\\path\\to\\image\\file"
+pathToPDFFile = "absolute\\path\\to\\PDF\\file"
 
 '''
 ---------------------------------------------
@@ -78,9 +78,9 @@ Print image
 '''
 
 # Sources for GhostScript to print PDF
-pathToGhostScript = "C:\\Users\\chris\\Documents\\GHOSTSCRIPT\\bin\\gswin32.exe"
-pathToGSPrint = "C:\\Users\\chris\\Documents\\GSPRINT\\gsprint.exe"
+pathToGhostScript = "absolute\\path\\to\\bin\\gswin32.exe"
+pathToGSPrint = "absolute\\path\\to\\gsprint.exe"
 
-# Choose either the default printer or hard-code the desired printer to use
-#currentprinter = win32print.GetDefaultPrinter()
+# Choose either your default printer or the desired printer to use
+#printer = win32print.GetDefaultPrinter()
 win32api.ShellExecute(0, 'open', pathToGSPrint, '-ghostscript "' + pathToGhostScript + '" -printer "' + printer + '" "' + pathToPDFFile, '.', 0)

@@ -1,0 +1,1 @@
+"absolute\path\to\python.exe" "absolute\path\to\PrinterInkTest.py"
