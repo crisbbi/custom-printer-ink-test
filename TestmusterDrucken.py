@@ -4,11 +4,14 @@ import win32print
 from PIL import Image, ImageWin
 
 printer = "Canon MG5200 series Printer WS"
+# file names must be absolute path so the task scheduler doesn't throw errors
+pathToImageFile = "C:\\Users\\chris\\Documents\\custom-printer-ink-test\\imageColors.jpg"
+pathToPDFFile = "C:\\Users\\chris\\Documents\\custom-printer-ink-test\\lorem-test.pdf"
 
 '''
 ---------------------------------------------
 Print image
-pretty much copy-pasted from 
+Code is pretty much copy-pasted from 
 http://timgolden.me.uk/python/win32_how_do_i/print.html#shellexecute
 ---------------------------------------------
 '''
@@ -29,9 +32,6 @@ PHYSICALHEIGHT = 111
 PHYSICALOFFSETX = 112
 PHYSICALOFFSETY = 113
 
-# file_name must be absolute path so the task scheduler doesn't throw errors
-file_name = "C:\\Users\\chris\\Documents\\custom-printer-ink-test\\imageColors.jpg"
-
 #  You can only write a Device-independent bitmap
 #  directly to a Windows device context; therefore
 #  we need (for ease) to use the Python Imaging
@@ -48,25 +48,25 @@ printer_margins = hDC.GetDeviceCaps(PHYSICALOFFSETX), hDC.GetDeviceCaps(PHYSICAL
 #  it is high, and work out how much to multiply
 #  each pixel by to get it as big as possible on
 #  the page without distorting.
-bmp = Image.open(file_name)
+bmp = Image.open(pathToImageFile)
 if bmp.size[0] > bmp.size[1]:
   bmp = bmp.rotate(90)
 
 ratios = [1.0 * printable_area[0] / bmp.size[0], 1.0 * printable_area[1] / bmp.size[1]]
-scale = min (ratios)
+scale = min(ratios)
 
 #  Start the print job, and draw the bitmap to
 #  the printer device at the scaled size.
-hDC.StartDoc(file_name)
+hDC.StartDoc(pathToImageFile)
 hDC.StartPage()
 
 dib = ImageWin.Dib(bmp)
 scaled_width, scaled_height = [int (scale * i) for i in bmp.size]
-x1 = int ((printer_size[0] - scaled_width) / 2)
-y1 = int ((printer_size[1] - scaled_height) / 2)
+x1 = int((printer_size[0] - scaled_width) / 2)
+y1 = int((printer_size[1] - scaled_height) / 2)
 x2 = x1 + scaled_width
 y2 = y1 + scaled_height
-dib.draw (hDC.GetHandleOutput (), (x1, y1, x2, y2))
+dib.draw(hDC.GetHandleOutput(), (x1, y1, x2, y2))
 
 hDC.EndPage()
 hDC.EndDoc()
@@ -83,5 +83,4 @@ pathToGSPrint = "C:\\Users\\chris\\Documents\\GSPRINT\\gsprint.exe"
 
 # Choose either the default printer or hard-code the desired printer to use
 #currentprinter = win32print.GetDefaultPrinter()
-# replace PDF file with absolute path of desired PDF file so task scheduler doesn't throw errors
-win32api.ShellExecute(0, 'open', pathToGSPrint, '-ghostscript "'+pathToGhostScript+'" -printer "'+printer+'" "C:\\Users\\chris\\Documents\\custom-printer-ink-test\\lorem-test.pdf"', '.', 0)
+win32api.ShellExecute(0, 'open', pathToGSPrint, '-ghostscript "' + pathToGhostScript + '" -printer "' + printer + '" "' + pathToPDFFile, '.', 0)
