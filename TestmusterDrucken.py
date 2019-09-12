@@ -27,8 +27,9 @@ PHYSICALHEIGHT = 111
 PHYSICALOFFSETX = 112
 PHYSICALOFFSETY = 113
 
-printer_name = win32print.GetDefaultPrinter()
-file_name = "imageColors.jpg"
+printer_name = "Canon MG5200 series Printer WS"
+# file_name must be absolute path so the task scheduler doesn't throw errors
+file_name = "C:\\Users\\chris\\Documents\\custom-printer-ink-test\\imageColors.jpg"
 
 #  You can only write a Device-independent bitmap
 #  directly to a Windows device context; therefore
@@ -83,5 +84,5 @@ pathToGSPrint = "C:\\Users\\chris\\Documents\\GSPRINT\\gsprint.exe"
 #currentprinter = win32print.GetDefaultPrinter()
 currentprinter = "Canon MG5200 series Printer WS"
 print('-ghostscript "'+pathToGhostScript+'" -printer "'+currentprinter+'" "C:\\Users\\chris\\Documents\\custom-printer-ink-test\\lorem-test.pdf"')
-pdfFileLocation = "C:\\Users\\chris\\Documents\\custom-printer-ink-test\\lorem-test.pdf"
-win32api.ShellExecute(0, 'open', pathToGSPrint, '-ghostscript "' + pathToGhostScript + '" -printer "' + currentprinter + pdfFileLocation, '.', 0)
+# replace PDF file with absolute path of desired PDF file so task scheduler doesn't throw errors
+win32api.ShellExecute(0, 'open', pathToGSPrint, '-ghostscript "'+pathToGhostScript+'" -printer "'+currentprinter+'" "C:\\Users\\chris\\Documents\\custom-printer-ink-test\\lorem-test.pdf"', '.', 0)
