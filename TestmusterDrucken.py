@@ -3,6 +3,8 @@ import win32api
 import win32print
 from PIL import Image, ImageWin
 
+printer = "Canon MG5200 series Printer WS"
+
 '''
 ---------------------------------------------
 Print image
@@ -27,7 +29,6 @@ PHYSICALHEIGHT = 111
 PHYSICALOFFSETX = 112
 PHYSICALOFFSETY = 113
 
-printer_name = "Canon MG5200 series Printer WS"
 # file_name must be absolute path so the task scheduler doesn't throw errors
 file_name = "C:\\Users\\chris\\Documents\\custom-printer-ink-test\\imageColors.jpg"
 
@@ -38,7 +39,7 @@ file_name = "C:\\Users\\chris\\Documents\\custom-printer-ink-test\\imageColors.j
 #  Create a device context from a named printer
 #  and assess the printable size of the paper.
 hDC = win32ui.CreateDC()
-hDC.CreatePrinterDC(printer_name)
+hDC.CreatePrinterDC(printer)
 printable_area = hDC.GetDeviceCaps(HORZRES), hDC.GetDeviceCaps(VERTRES)
 printer_size = hDC.GetDeviceCaps(PHYSICALWIDTH), hDC.GetDeviceCaps(PHYSICALHEIGHT)
 printer_margins = hDC.GetDeviceCaps(PHYSICALOFFSETX), hDC.GetDeviceCaps(PHYSICALOFFSETY)
@@ -82,6 +83,5 @@ pathToGSPrint = "C:\\Users\\chris\\Documents\\GSPRINT\\gsprint.exe"
 
 # Choose either the default printer or hard-code the desired printer to use
 #currentprinter = win32print.GetDefaultPrinter()
-currentprinter = "Canon MG5200 series Printer WS"
 # replace PDF file with absolute path of desired PDF file so task scheduler doesn't throw errors
-win32api.ShellExecute(0, 'open', pathToGSPrint, '-ghostscript "'+pathToGhostScript+'" -printer "'+currentprinter+'" "C:\\Users\\chris\\Documents\\custom-printer-ink-test\\lorem-test.pdf"', '.', 0)
+win32api.ShellExecute(0, 'open', pathToGSPrint, '-ghostscript "'+pathToGhostScript+'" -printer "'+printer+'" "C:\\Users\\chris\\Documents\\custom-printer-ink-test\\lorem-test.pdf"', '.', 0)
