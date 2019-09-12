@@ -28,4 +28,8 @@ The edible ink (in a compatible printer) should be used regularly, otherwise it 
 You can now go to the Windows task scheduler and create a new task that executes the batch file however you like.
 
 ### Some additional info:
-I'm not an expert with printers. I have my own printer Canon MG 5200 which I successfully used for testing, without edible ink. I can't guarantee though that everything works on your printer or computer. I don't know much about Ghostscript, gsprint or anything related besides the commands I have put into the Python script, which I have put together by googling. The code that prints the image is almost copy pasted from the source (thanks to the author!), which is linked in the Python file. The absolute paths are necessary (at least they were for me) so that the task scheduler wouldn't throw any errors. 
+I'm not an expert with printers. I have my own printer Canon MG 5200 which I successfully used for testing, without edible ink. I can't guarantee though that everything works on your printer or computer. 
+
+I don't know much about Ghostscript, gsprint or anything related besides the commands I have put into the Python script, which I have put together by googling. The code that prints the image is almost copy pasted from the source (thanks to the author!), which is linked in the Python file. 
+
+The absolute paths are necessary (at least they were for me) so that the task scheduler wouldn't throw any errors. This whole setup is only tested on Windows as the original printer with the edible ink is also connected to a Windows computer. You can try yourself to maybe get it to work on Linux too.
