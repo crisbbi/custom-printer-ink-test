@@ -83,6 +83,5 @@ pathToGSPrint = "C:\\Users\\chris\\Documents\\GSPRINT\\gsprint.exe"
 # Choose either the default printer or hard-code the desired printer to use
 #currentprinter = win32print.GetDefaultPrinter()
 currentprinter = "Canon MG5200 series Printer WS"
-print('-ghostscript "'+pathToGhostScript+'" -printer "'+currentprinter+'" "C:\\Users\\chris\\Documents\\custom-printer-ink-test\\lorem-test.pdf"')
 # replace PDF file with absolute path of desired PDF file so task scheduler doesn't throw errors
 win32api.ShellExecute(0, 'open', pathToGSPrint, '-ghostscript "'+pathToGhostScript+'" -printer "'+currentprinter+'" "C:\\Users\\chris\\Documents\\custom-printer-ink-test\\lorem-test.pdf"', '.', 0)
